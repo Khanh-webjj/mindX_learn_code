@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.Container {
+    width: 300px;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.Group-input {
+    margin-top: 10px;
+}
+
+.Login-button{
+    margin-top: 10px;
+    width: 100%;
+}
+
