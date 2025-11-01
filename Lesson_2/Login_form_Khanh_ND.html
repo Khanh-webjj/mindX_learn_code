@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width = <device-width>, initial-scale=1.0" />
+        <title>Login</title>
+        <style>
+            *{
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body{
+                height: 100vh;
+                width: 100vh;
+                font-family: Arial, sans-serif;
+                background-color: #F8F8F8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+
+            .Container {
+                width: 320px;
+            }
+
+            .FormLogin{
+                background-color: white;
+                padding: 30px 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+                border-radius: 5px;
+                text-align: left;
+            }
+            
+            .Topic{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            input{
+                width: 100%;
+                border: 1px solid #ddd;
+                padding: 7px;
+                font-size: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                margin-top: 5px;
+                box-sizing: border-box;
+            }
+
+            label{
+                font-size: 15;
+            }
+
+            a{
+                color: #3b9bdb;
+                
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .LoginButton {
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                height: 35px;
+                margin-bottom: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                color: white;
+                background-color: #0084ff;
+            }
+
+            .LabelGroup{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 15px;
+            }
+
+            .SignUpText{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+        </style>
+   </head> 
+
+   <body>
+        <div class="Container">
+            <h2 class="Topic">Login</h2>
+            <div class="FormLogin">
+                <form action="Login" method="get">
+                    <div class="Group-input">
+                        <label class="Lable-input" for="email">Email</lable><br>
+                        <input type="email" id="" 
+                            placeholder="example@email.com">
+                    </div>
+                    <div class="Group-input">
+                        <div class="LabelGroup">
+                            <label class="Lable-input" for="password">Password</label>
+                            <a href="http://www.google.com">
+                                Forgot password
+                            </a>
+                        </div>
+                        <input type="password" name="" id="password" 
+                            placeholder="***********">
+                    </div>
+                    <button type="button" class="LoginButton">Login</button>
+                    <div class="SignUpText">
+                        <div>Don't you have account</div>
+                        <a href="http://www.google.com">Create new account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+   </body>
+</html>
