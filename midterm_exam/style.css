@@ -6,7 +6,7 @@
 
 body{
     font-family: sans-serif;
-    background-color: #f0f0f0;
+    background-color: #fff;
     min-height: 100vh;
 }
 
@@ -24,3 +24,19 @@ body{
     margin-bottom: 20px;
 }
 
+.nav-links a{
+    text-decoration: none;
+    color: #333;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+.nav-links a:hover{
+    text-decoration: underline;
+}
+
+.auth-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
