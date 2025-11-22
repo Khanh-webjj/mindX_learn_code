@@ -29,6 +29,7 @@ body{
     padding : 8px;
     display: flex;
     flex-direction: column;
+    /* position: relative; */
 }
 
 .nav-bar{
@@ -174,6 +175,7 @@ body{
     border: 2px solid #8070DB;
     background-color: white;
     font-size: 20px;
+    box-shadow: 5px 5px 2px 2px rgba(0,0,0,0.05);
 }
 
 .dashboard-content .header button:hover {
@@ -219,7 +221,7 @@ body{
     width: 345px;
     height: 321px;
     font-size: 16px;
-    font-style: bold;
+    font-weight: bold;
     font-size: 36px;
 }
 
@@ -227,6 +229,7 @@ body{
     width: 412px;
     margin: 0 auto;
     font-size: 24px;
+    font-weight: bold;
     border: 1px solid #7200B8;
 }
 
@@ -250,4 +253,32 @@ body{
     line-height: 1.5;
     margin-bottom: 15px;
     padding: 0 15px;
+    font-weight: 1;
+}
+
+.chat-now-button{
+    position: fixed;
+    width: fit-content;
+    bottom: 30px;
+    right: 30px;
+    color: #7200B8;
+    opacity: 0.5;
+    border: none;
+    border-radius: 50%;
+    padding: 15px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 20px;
+}
+.chat-now-button i{
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.chat-now-button:hover{
+    opacity: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
