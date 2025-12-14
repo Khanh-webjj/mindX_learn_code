@@ -1,0 +1,29 @@
+* {
+    font-family: 'Times New Roman', 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+.board {
+    border-collapse: collapse;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 3rem; */
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell:hover {
+    background-color: aqua;
+}
+
+.winning-cell {
+    background-color: aquamarine;
+}
