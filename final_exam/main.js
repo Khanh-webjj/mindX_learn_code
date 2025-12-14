@@ -1,17 +1,17 @@
 // array lưu trữ trạng thái của từng cell trong bảng
 let startingState = ["","","","","","","","",""]; 
-let boardState = startingState;
+let boardState = [...startingState];
 let players = ["X","O"];
 let indexCurrentPlayer = 0;
 let currentPlayer = players[indexCurrentPlayer];
 let gameActive = false;
 
 // Khai báo các phần tử html
-const cells = document.querySelectorAll('.cell')
-const playerTurn = document.getElementById('turned-player')
-const gameTitle = document.getElementById('game-title')
-const startBtn = document.getElementById('start-btn')
-const playAgainBtn = document.getElementById('play-again-btn')
+const cells = document.querySelectorAll('.cell');
+const playerTurn = document.getElementById('turned-player');
+const gameTitle = document.getElementById('game-title');
+const startBtn = document.getElementById('start-btn');
+const playAgainBtn = document.getElementById('play-again-btn');
 
 // Các điều kiện thắng
 const winningCondition = [
@@ -25,17 +25,33 @@ const winningCondition = [
     [2, 4, 6]
 ]
 
+//Định nghĩa đường dẫn hình ảnh (thay thế cho đường dẫn thực tế)
+const imagePaths = {
+    "X": "./asset/x.png",
+    "O": "./asset/o.png"
+}
+
+// Hàm tạo HTML cho thẻ <image>
+function getPlayerImageHtml(player) {
+    const src = imagePaths[player];
+    // Sử dụng thẻ <img> trong innerHTML
+    return `<img src=${src} alt=${player} loading="lazy">`;
+}
+
 // starting-game function
 const startGame = ()=>{
     if (gameActive) {
         return; // nếu đang chơi thì không kích hoạt hàm
     }
 
+    console.log('start game')
+
     gameActive = true;
     gameTitle.textContent = "Hãy chiến đấu hết mình!"
     playerTurn.textContent = currentPlayer
 
     cells.forEach(cell => {
+        console.log(`loading cell ${cell.getAttribute('data-index')}`)
         cell.addEventListener('click', handleCellClick);
         cell.classList.remove('disabled');
     });
@@ -47,6 +63,8 @@ const startGame = ()=>{
 
 // hàm xử lý click vào ô cờ
 function handleCellClick(clickedCellEvent){
+    console.log("cell clicked");
+
     const clickedCell = clickedCellEvent.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
 
@@ -55,8 +73,10 @@ function handleCellClick(clickedCellEvent){
         return;
     }
 
+    console.log('click accepted')
     // cập nhật trạng thái và giao diện
     boardState[clickedCellIndex] = currentPlayer;
+    clickedCell.innerHTML = getPlayerImageHtml(currentPlayer);
     
     // Kiểm tra kết quả sau khi đánh
     handleResultValidation();
@@ -117,10 +137,30 @@ function changePlayer() {
 // Hàm chơi lại (Play-Again/Reset)
 function restartGame(){
     // Reset biến trạng thái
-    boardState = startingState;
+    boardState = [...startingState];
     currentPlayer = players[0];
     gameActive = false; //Thiết lập trạng thái ban đầu
 
     // cập nhật giao diện
-    gam
+    gameTitle.textContent = "Hãy chiến đấu hết mình!"
+    playerTurn.textContent = currentPlayer;
+
+    // Xóa nội dung và hiệu ứng trên các ô
+    cells.forEach(cell => {
+        cell.innerHTML = "";
+        cell.classList.remove('winning-cell');
+        cell.classList.add('disabled');
+        cell.removeEventListener('click', handleCellClick)
+    });
+
+    //start new game
+    startGame();
 }
+
+// Gắn event cho 2 nút
+startBtn.addEventListener('click', startGame)
+playAgainBtn.addEventListener('click', restartGame)
+
+// Tải trang: vô hiệu hóa ô cờ ngay từ đầu
+cells.forEach(cell => cell.classList.add('disabled'));
+playAgainBtn.disabled = true; // đảm bảo nút chơi lại bị vô hiệu hóa khi mới tải
